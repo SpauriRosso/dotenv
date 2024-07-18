@@ -1,4 +1,4 @@
-package main
+package dotenv
 
 var (
 //Env string
