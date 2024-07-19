@@ -22,7 +22,7 @@ func Define(path string) any {
 	return Env
 }
 
-func GetEnv(key string) any {
+func GetEnv(key string) string {
 	var value string
 	File, _ = os.ReadFile(Env)
 
