@@ -1,6 +1,7 @@
 package dotenv
 
 import (
+	"log"
 	"os"
 	"strings"
 )
@@ -13,11 +14,9 @@ var File []byte
 //	fmt.Println(GetEnv("SUPER_SECRET_KEY"))
 //}
 
-func Define(path string) any {
+func Define(path string) string {
 	_, err := os.Getwd()
-	if err != nil {
-		return err
-	}
+	CheckErr(err)
 	Env = path
 	return Env
 }
@@ -34,4 +33,10 @@ func GetEnv(key string) string {
 		}
 	}
 	return value
+}
+
+func CheckErr(err error) {
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
